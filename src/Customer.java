@@ -1,4 +1,6 @@
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Customer extends Person {
@@ -22,7 +24,7 @@ public class Customer extends Person {
 
     public String makePayment(double total) {
         while(true){
-        System.out.println("Please choose the pament method you prefer :");
+        System.out.println("Please choose the payment method you prefer :");
         System.out.println("---------------------------------------------");
         System.out.println("1.CASH");
         System.out.println("2.CREDIT CARD");
@@ -51,10 +53,30 @@ public class Customer extends Person {
         }
         
     }
-    // void?
-    public void addToFavorite(int productID){
-        
+    
+     private Date parsedate(String birthDate) {
+        SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = parser.parse(birthDate);
+        } catch (ParseException ex) {
+        }
+
+        return date;
     }
+     
+ 
+    public boolean addToFavorite(int productID){
+     
+         
+        
+        return true; 
+        }
+        
+        
+        
+       
+    
      public void addToCart(int productID){
         
     }
