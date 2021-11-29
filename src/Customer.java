@@ -65,9 +65,11 @@ public class Customer extends Person {
         return date;
     }
      
- 
+ // ...
     public boolean addToFavorite(int productID){
      
+        
+        
          
         
         return true; 

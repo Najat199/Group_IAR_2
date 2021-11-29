@@ -95,26 +95,7 @@ public class Person {
         this.Address = Address;
     }
 
-      public static Person createFromString(String line) {
-        String[] data = line.split(";");
-        SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
-
-        Date date = null;
-        try {
-            date = parser.parse(data[3]);
-
-        } catch (ParseException ex) {
-        }
-        return null;
-       
-    }
-      
-      public String createToString() {
-        SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
-        String date = parser.format(this.birthDate);
-       return this.ID + ";" + this.Fname + ";" + this.Lname + ";" + this.Email + ";" +  this.Password + ";" + this.phoneNo + ";"+ date+ this.Address;
-    
-}
+  
      
    
    public void signUp() {
