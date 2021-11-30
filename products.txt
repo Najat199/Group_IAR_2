@@ -1,0 +1,42 @@
+Man,Bottoms,11220,pants,88.00
+Man,Bottoms,11221,shorts,56.00
+Man,Bottoms,11222,pants,97.00
+Man,Tops,11230,Tshirt,65.00
+Man,Tops,11231,shirt,72.00
+Man,Tops,11232,shirt,75.00
+Man,Shoes,11240,sneakers,75.00
+Man,Shoes,11241,sneakers,85.00
+Man,Shoes,11242,boots,88.00
+Man,Watches,11250,quartz ,152.00
+Man,Watches,11251,quartz ,146.00
+Man,Watches,11252,quartz ,210.00
+Kids,Bottoms,13320,pants,38.00
+Kids,Bottoms,13321,pants,70.00
+Kids,Bottoms,13322,shorts,34.00
+Kids,Tops,13330,Tshirt,25.00
+Kids,Tops,13331,shirt,45.00
+Kids,Tops,13332,shirt,33.00
+kids,Shoes,13340,sneakers,73.00
+kids,Shoes,13341,flat,40.00
+kids,Shoes,13342,boots,55.00
+kids,Toys,13350,bubble,12.00
+kids,Toys,13351,fidget,9.00
+kids,Toys,13352,rabbit,23.00
+Women,Bottoms,12420,pants,45.00
+Women,Bottoms,12421,LeatherSkirt,65.00
+Women,Bottoms,12422,Skirt,52.00
+Women,Tops,12430,Tshirt,25.00
+Women,Tops,12431,Jacket,95.00
+Women,Tops,12432,shirt,45.00
+Women,Shoes,12440,sneakers,74.00
+Women,Shoes,12441,heels,62.00
+Women,Shoes,12442,flat,31.00
+Women,Dresses,12450,sleeveless,58.00
+Women,Dresses,12451,halter,89.00
+Women,Dresses,12452,prom,92.00
+Women,Bags,12460,sholderBag,42.00
+Women,Bags,12461,CrossbodyBag,45.00
+Women,Bags,12462,backpack,68.00
+Women,Beauty,12470,FoundationBrush,18.00
+Women,Beauty,12471,Eyeliner,38.00
+Women,Beauty,12472,Lipstick,29.00

@@ -1,12 +1,18 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static protected Product currentProduct;
+
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         int chioce1;
         int chioce2;
+        String chioce3;
         do {
 
             System.out.println(" *************************************** ");
@@ -15,7 +21,8 @@ public class Main {
             System.out.println("1. Man");
             System.out.println("2. Women");
             System.out.println("3. Kids");
-            System.out.println("0. Exit");
+            System.out.println("4. Product search");
+            System.out.println("5. Exit");
             System.out.print(" Please enter your choice: ");
             chioce1 = input.nextInt();
             if (chioce1 == 1) {
@@ -62,9 +69,8 @@ public class Main {
                         continue;
 
                     } else {
-                        //System.out.println("you are in the Women section");
-                    }
 
+                    }
                 }
             } else if (chioce1 == 3) {
                 while (true) {
@@ -89,15 +95,27 @@ public class Main {
                     }
 
                 }
+            } else if (chioce1 == 4) {
+                System.out.print("Enter the ID of the product you are looking for: ");
+                chioce3 = input.next();
+                currentProduct = Product.searchByID(chioce3);
+                if (currentProduct == null) {
+                    System.out.println("your search '" + chioce3 + "' did not match any product");
+                } else {
+                    System.out.println(" *************************************** ");
+                    System.out.println("         " + currentProduct.getSection() + "> " + currentProduct.getCategory() + " Section        ");
+                    System.out.println(" *************************************** ");
+                    System.out.println("Product Name: " + currentProduct.getProductName());
+                    System.out.println("Price: " + currentProduct.getPrice());
+
+                }
             } else {
-                System.out.println(" ************ Thank you **************** ");
+                System.out.println(" \n\n************ Thank you **************** ");
             }
 
-        } while (chioce1 != 0);
+        } while (chioce1 != 5);
     }
 
-}
-
-//        Customer customer=new Customer();
+} //        Customer customer=new Customer();
 //        System.out.println(customer.makePayment(400));
 
