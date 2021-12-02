@@ -45,7 +45,38 @@ public class Product {
 		return price;
 	}
 
+	public static void addProductToFavorite(Product currentProduct) {
+		try {
+			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Favorites.txt", true)));
+			out.println(currentProduct.productID);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			// exception handling left as an exercise for the reader
+		}
+
+	}
+
 	
+        
+        public static void addProductToCart(Product currentProduct) {
+		try {
+			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Cart.txt", true)));
+			out.println(currentProduct.productID);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			// exception handling left as an exercise for the reader
+		}
+
+	}
+
+
+        
+        
+        
+        
+        
 
 	public static Product searchByID(String ProductID) throws FileNotFoundException, IOException {
 		BufferedReader input = new BufferedReader(new FileReader("products.txt"));
