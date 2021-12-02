@@ -1,121 +1,211 @@
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    static protected Product currentProduct;
+	static protected Product currentProduct;
+	static protected Scanner input;
 
-    public static void main(String[] args) throws IOException {
-        Scanner input = new Scanner(System.in);
-        int chioce1;
-        int chioce2;
-        String chioce3;
-        do {
+	public static void main(String[] args) throws IOException {
+		input = new Scanner(System.in);
+		while (true) {
+			PrintMainMenu();
+			int chioce1 = input.nextInt();
+			switch (chioce1) {
+			case 1:
+				PrintManMenu();
+				break;
+			case 2:
+				PrintWomenMenu();
+				break;
+			case 3:
+				PrintKidMenu();
+				break;
+			case 4:
+				SearchProduct();
+			
+			case 5:
+                            //add to fav
+				System.out.println(" \n\n************ Thank you **************** ");
+				
+				break;
+                        case 6 :
+                            //add to cart
+                            System.out.println(" \n\n************ Thank you **************** ");
+				System.exit(0);
+				break;
+                        case 7 :
+                             System.exit(0); 
+                             break;
+                            
+			default:
+				System.out.println(" \n\nPlease Enter correct option");
 
-            System.out.println(" *************************************** ");
-            System.out.println("                Welcome                  ");
-            System.out.println(" *************************************** ");
-            System.out.println("1. Man");
-            System.out.println("2. Women");
-            System.out.println("3. Kids");
-            System.out.println("4. Product search");
-            System.out.println("5. Exit");
-            System.out.print(" Please enter your choice: ");
-            chioce1 = input.nextInt();
-            if (chioce1 == 1) {
-                while (true) {
-                    System.out.println(" *************************************** ");
-                    System.out.println("               Man Section               ");
-                    System.out.println(" *************************************** ");
-                    System.out.println("please choose the category you want to buy from: ");
-                    System.out.println("1. Bottoms");
-                    System.out.println("2. Tops");
-                    System.out.println("3. Shoes");
-                    System.out.println("4. Watches");
-                    System.out.print(" Enter your choice or -1 to exit:");
-                    chioce2 = input.nextInt();
-                    if (chioce2 == -1) {
-                        break;
+			}
+		}
 
-                    } else if (chioce2 > 4 || chioce2 < 1) {
-                        continue;
+	}
 
-                    } else {
-                        //System.out.println("you are in the Man section");
-                    }
+	private static void PrintProducts(String section, String category) {
 
-                }
-            } else if (chioce1 == 2) {
-                while (true) {
-                    System.out.println(" *************************************** ");
-                    System.out.println("              Women Section              ");
-                    System.out.println(" *************************************** ");
-                    System.out.println("please choose the category you want to buy from: ");
-                    System.out.println("1. Bottoms");
-                    System.out.println("2. Tops");
-                    System.out.println("3. Dresses");
-                    System.out.println("4. Shoes");
-                    System.out.println("5. Bags");
-                    System.out.println("6. Beauty");
-                    System.out.print(" Enter your choice or -1 to exit:");
-                    chioce2 = input.nextInt();
-                    if (chioce2 == -1) {
-                        break;
+		while (true) {
+			System.out.println(" *************************************** ");
+			ArrayList<Product> products = Product.getSectionCategoryProducts(section, category);
+			for (int i = 0; i < products.size(); i++) {
+				System.out.println((i + 1) + "-" + products.get(i));
+			}
+			System.out.print(" Enter your choice or -1 to exit:");
 
-                    } else if (chioce2 > 6 || chioce2 < 1) {
-                        continue;
+			int productindex = input.nextInt();
+			if (productindex == -1) {
+				return;
+			}
+			if (productindex > products.size() || productindex < 1) {
+				continue;
+			}
+			currentProduct = products.get(productindex - 1);
+			break;
+		}
 
-                    } else {
+		while (true) {
+			System.out.println(" *************************************** ");
+			System.out.println("              product Selected           ");
+			System.out.println(" *************************************** ");
+			System.out.println("please choose what do you want to do with this product ");
+			System.out.println("1. add to Favorite");
+			System.out.println("2. add to cart");
+			System.out.print(" Enter your choice or -1 to exit:");
+			int option = input.nextInt();
+			switch (option) {
+			case -1:
+				return;
+			case 1:
+				
+				System.out.println("Product Added to Favorites");
+				return;
+			case 2:
+                            
+                            System.out.println("Product Added to Cart");
+				break;
+			default:
+				System.out.println(" \n\nPlease Enter correct option");
+				break;
 
-                    }
-                }
-            } else if (chioce1 == 3) {
-                while (true) {
-                    System.out.println(" *************************************** ");
-                    System.out.println("               Kids Section              ");
-                    System.out.println(" *************************************** ");
-                    System.out.println("please choose the category you want to buy from: ");
-                    System.out.println("1. Bottoms");
-                    System.out.println("2. Tops");
-                    System.out.println("3. Shoes");
-                    System.out.println("4. Toys");
-                    System.out.print(" Enter your choice or -1 to exit:");
-                    chioce2 = input.nextInt();
-                    if (chioce2 == -1) {
-                        break;
+			}
+		}
 
-                    } else if (chioce2 > 4 || chioce2 < 1) {
-                        continue;
+	}
 
-                    } else {
-                        //System.out.println("you are in the Kids section");
-                    }
+	private static void SearchProduct() throws IOException {
+		System.out.print("Enter the ID of the product you are looking for: ");
+		String itmeID = input.next();
+		currentProduct = Product.searchByID(itmeID);
+		if (currentProduct == null) {
+			System.out.println("your search '" + itmeID + "' did not match any product");
+		} else {
+			System.out.println(" *************************************** ");
+			System.out.println("         " + currentProduct.getSection() + "> " + currentProduct.getCategory()
+					+ " Section        ");
+			System.out.println(" *************************************** ");
+			System.out.println("Product Name: " + currentProduct.getProductName());
+			System.out.println("Price: " + currentProduct.getPrice());
 
-                }
-            } else if (chioce1 == 4) {
-                System.out.print("Enter the ID of the product you are looking for: ");
-                chioce3 = input.next();
-                currentProduct = Product.searchByID(chioce3);
-                if (currentProduct == null) {
-                    System.out.println("your search '" + chioce3 + "' did not match any product");
-                } else {
-                    System.out.println(" *************************************** ");
-                    System.out.println("         " + currentProduct.getSection() + "> " + currentProduct.getCategory() + " Section        ");
-                    System.out.println(" *************************************** ");
-                    System.out.println("Product Name: " + currentProduct.getProductName());
-                    System.out.println("Price: " + currentProduct.getPrice());
+		}
 
-                }
-            } else {
-                System.out.println(" \n\n************ Thank you **************** ");
-            }
+	}
 
-        } while (chioce1 != 5);
-    }
+	private static void PrintWomenMenu() {
 
-} //        Customer customer=new Customer();
-//        System.out.println(customer.makePayment(400));
+		String[] options = { "Bottoms", "Tops", "Dresses", "Shoes", "Bags", "Beauty" };
+		while (true) {
+			System.out.println(" *************************************** ");
+			System.out.println("              Women Section              ");
+			System.out.println(" *************************************** ");
+			System.out.println("please choose the category you want to buy from: ");
+			System.out.println("1. Bottoms");
+			System.out.println("2. Tops");
+			System.out.println("3. Dresses");
+			System.out.println("4. Shoes");
+			System.out.println("5. Bags");
+			System.out.println("6. Beauty");
+			System.out.print(" Enter your choice or -1 to exit:");
 
+			int category = input.nextInt();
+			if (category == -1) {
+				return;
+			}
+			if (category > 6 || category < 1) {
+				continue;
+			}
+			PrintProducts("Women", options[category - 1]);
+		}
+
+	} 
+
+	private static void PrintKidMenu() {
+		String[] options = { "Bottoms", "Tops", "Shoes", "Toys" };
+		while (true) {
+			System.out.println(" *************************************** ");
+			System.out.println("               Kids Section              ");
+			System.out.println(" *************************************** ");
+			System.out.println("please choose the category you want to buy from: ");
+			System.out.println("1. Bottoms");
+			System.out.println("2. Tops");
+			System.out.println("3. Shoes");
+			System.out.println("4. Toys");
+			System.out.print(" Enter your choice or -1 to exit:");
+			int category = input.nextInt();
+			if (category == -1) {
+				return;
+			}
+			if (category > 4 || category < 1) {
+				continue;
+			}
+			PrintProducts("kids", options[category - 1]);
+		}
+
+	}
+
+	private static void PrintManMenu() {
+		String[] options = { "Bottoms", "Tops", "Shoes", "Watches" };
+		while (true) {
+			System.out.println(" *************************************** ");
+			System.out.println("               Man Section               ");
+			System.out.println(" *************************************** ");
+			System.out.println("please choose the category you want to buy from: ");
+			System.out.println("1. Bottoms");
+			System.out.println("2. Tops");
+			System.out.println("3. Shoes");
+			System.out.println("4. Watches");
+			System.out.print(" Enter your choice or -1 to exit:");
+			int category = input.nextInt();
+			if (category == -1) {
+				return;
+			}
+			if (category > 4 || category < 1) {
+				continue;
+			}
+
+			PrintProducts("Man", options[category - 1]);
+
+		}
+
+	}
+
+	private static void PrintMainMenu() {
+		System.out.println(" *************************************** ");
+		System.out.println("      Welcome to Easy Way system         ");
+		System.out.println(" *************************************** ");
+		System.out.println("1. Man");
+		System.out.println("2. Women");
+		System.out.println("3. Kids");
+		System.out.println("4. Product search");
+		System.out.println("5. Print Favorites");
+		System.out.println("6. Print cart");
+                System.out.println("7. Exit");
+		System.out.print(" Please enter your choice: ");
+
+	}
+
+}
