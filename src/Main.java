@@ -28,12 +28,10 @@ public class Main {
                               break;
 			
 			case 5:
-                          //print fav
-                            System.out.println("");
+                         Product.PrintFavorites();
 				break;
                         case 6 :
-                            System.out.println("");
-                          //print cart
+                        Product.PrintCart();
 				break;
                         case 7 :
                              System.out.println(" \n\n***** Thank you ******* ");
@@ -49,11 +47,10 @@ public class Main {
 	}
 
 	
-
 	private static void PrintProducts(String section, String category) {
 
 		while (true) {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			ArrayList<Product> products = Product.getSectionCategoryProducts(section, category);
 			for (int i = 0; i < products.size(); i++) {
 				System.out.println((i + 1) + "-" + products.get(i));
@@ -72,9 +69,9 @@ public class Main {
 		}
         
 		while (true) {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("              product Selected           ");
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("please choose what do you want to do with this product ");
 			System.out.println("1. add to Favorite");
 			System.out.println("2. add to cart");
@@ -112,10 +109,10 @@ public class Main {
 		if (currentProduct == null) {
 			System.out.println("your search '" + itmeID + "' did not match any product");
 		} else {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("         " + currentProduct.getSection() + "> " + currentProduct.getCategory()
 					+ " Section        ");
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("Product Name: " + currentProduct.getProductName());
 			System.out.println("Price: " + currentProduct.getPrice());
 
@@ -127,9 +124,9 @@ public class Main {
 
 		String[] options = { "Bottoms", "Tops", "Dresses", "Shoes", "Bags", "Beauty" };
 		while (true) {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("              Women Section              ");
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("please choose the category you want to buy from: ");
 			System.out.println("1. Bottoms");
 			System.out.println("2. Tops");
@@ -154,9 +151,9 @@ public class Main {
 	private static void PrintKidMenu() {
 		String[] options = { "Bottoms", "Tops", "Shoes", "Toys" };
 		while (true) {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("               Kids Section              ");
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("please choose the category you want to buy from: ");
 			System.out.println("1. Bottoms");
 			System.out.println("2. Tops");
@@ -178,9 +175,9 @@ public class Main {
 	private static void PrintManMenu() {
 		String[] options = { "Bottoms", "Tops", "Shoes", "Watches" };
 		while (true) {
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("               Man Section               ");
-			System.out.println(" ************* ");
+			System.out.println(" *************************************** ");
 			System.out.println("please choose the category you want to buy from: ");
 			System.out.println("1. Bottoms");
 			System.out.println("2. Tops");
@@ -205,9 +202,9 @@ public class Main {
 
 
 	private static void PrintMainMenu() {
-		System.out.println(" ************* ");
+		System.out.println(" *************************************** ");
 		System.out.println("      Welcome to Easy Way system         ");
-		System.out.println(" ************* ");
+		System.out.println(" *************************************** ");
 		System.out.println("1. Man");
 		System.out.println("2. Women");
 		System.out.println("3. Kids");
@@ -218,5 +215,4 @@ public class Main {
 		System.out.print(" Please enter your choice: ");
 
 	}
-
 }
