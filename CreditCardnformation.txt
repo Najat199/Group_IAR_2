@@ -1,4 +1,4 @@
-The payment amount : 400.0
+The payment amount : 88.0
 payed by the card : 379354508162306
-with the expiry date : 12/21
-CVV : 222
+with the expiry date : 12/22
+CVV : 333

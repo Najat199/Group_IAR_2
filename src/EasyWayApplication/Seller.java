@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 public class Seller extends Person {
 

@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,10 +16,10 @@ public class Product {
     private String category;
     private String productID;
     private String productName;
-    private String price;
+    private double price;
     private String isAvailable;
 
-    public Product(String section, String category, String productID, String productName, String price) {
+    public Product(String section, String category, String productID, String productName, double price) {
         this.section = section;
         this.category = category;
         this.productID = productID;
@@ -41,33 +43,11 @@ public class Product {
         return productName;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public static void addProductToFavorite(Product currentProduct) {
-        try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Favorites.txt", true)));
-            out.println(currentProduct.productID);
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            // exception handling left as an exercise for the reader
-        }
-
-    }
-
-    public static void addProductToCart(Product currentProduct) {
-        try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Cart.txt", true)));
-            out.println(currentProduct.productID);
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            // exception handling left as an exercise for the reader
-        }
-
-    }
+    
 
     public static void PrintCart() {
         try {
@@ -118,7 +98,8 @@ public class Product {
         while ((line = input.readLine()) != null) {
             if (line.contains(ProductID)) {
                 setter = line.split(",");
-                return new Product(setter[0], setter[1], setter[2], setter[3], setter[4]);
+                double price=Double.parseDouble(setter[4]);
+                return new Product(setter[0], setter[1], setter[2], setter[3], price);
             }
 
         }
@@ -148,7 +129,8 @@ public class Product {
             while ((line = input.readLine()) != null) {
                 if (line.contains(Section.trim()) && line.contains(category.trim())) {
                     setter = line.split(",");
-                    products.add(new Product(setter[0], setter[1], setter[2], setter[3], setter[4]));
+                    double price=Double.parseDouble(setter[4]);
+                    products.add(new Product(setter[0], setter[1], setter[2], setter[3], price));
                 }
             }
         } catch (Exception e) {

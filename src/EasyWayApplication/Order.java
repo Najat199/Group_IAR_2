@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 import java.util.Date;
 

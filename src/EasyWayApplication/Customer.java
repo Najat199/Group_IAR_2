@@ -1,4 +1,10 @@
+package EasyWayApplication;
 
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -10,19 +16,49 @@ public class Customer extends Person {
     private String CVV;
     private String cardExpirationDate;
     private double points;
-    private ArrayList FavoriteProdects;
-    private ArrayList cartProduct;
+    private double totalPrice=0;
+    private ArrayList <Product> FavoriteProdects=new ArrayList<Product>();
+    private ArrayList <Product> cartProduct=new ArrayList<Product>();
     Scanner input=new Scanner(System.in);
     
     public Customer() {
     }
 
-    
-    public String returnProducts() {
-        return null;
+    public void addProductToFavorite(Product currentProduct) {
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Favorites.txt", true)));
+            out.println(currentProduct.getProductID());
+            FavoriteProdects.add(currentProduct);
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            System.out.println("Sorry, something went wrong :(");
+        }
+
     }
 
-   public String makePayment(double total) {
+    public void addProductToCart(Product currentProduct) {
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Cart.txt", true)));
+            out.println(currentProduct.getProductID());
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+           System.out.println("Sorry, something went wrong :(");
+        }
+
+    }
+   
+    
+    public double getTotalPrice(){
+        for(int i=0;i<cartProduct.size();i++){
+         totalPrice=totalPrice+cartProduct.get(i).getPrice();
+        }
+        return totalPrice;
+    }
+    
+   public String makePayment() {
+      double total=getTotalPrice();
         while(true){
         System.out.println("Please choose the pament method you prefer :");
         System.out.println(" ********************************************** ");

@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;

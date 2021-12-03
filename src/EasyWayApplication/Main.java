@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,22 +8,23 @@ public class Main {
 
 	static protected Product currentProduct;
 	static protected Scanner input;
-    
+       
 
 	public static void main(String[] args) throws IOException {
+                Customer customer=new Customer();
 		input = new Scanner(System.in);
 		while (true) {
 			PrintMainMenu();
 			int chioce1 = input.nextInt();
 			switch (chioce1) {
 			case 1:
-				PrintManMenu();
+				PrintManMenu(customer);
 				break;
 			case 2:
-				PrintWomenMenu();
+				PrintWomenMenu(customer);
 				break;
 			case 3:
-				PrintKidMenu();
+				PrintKidMenu(customer);
 				break;
 			case 4:
 				SearchProduct();
@@ -30,10 +33,11 @@ public class Main {
 			case 5:
                          Product.PrintFavorites();
 				break;
-                        case 6 :
-                        Product.PrintCart();
+                        case 6 :Product.PrintCart();
 				break;
-                        case 7 :
+                        case 7 :System.out.println(customer.makePayment()); 
+                                break;
+                        case 8 :
                              System.out.println(" \n\n***** Thank you ******* ");
                              System.exit(0); 
                              break;
@@ -47,7 +51,7 @@ public class Main {
 	}
 
 	
-	private static void PrintProducts(String section, String category) {
+	private static void PrintProducts(String section, String category,Customer customer) {
 
 		while (true) {
 			System.out.println(" *************************************** ");
@@ -82,14 +86,13 @@ public class Main {
 			case -1:
 				return;
 			case 1:
-				Product.addProductToFavorite(currentProduct);
+				customer.addProductToFavorite(currentProduct);
 				System.out.println("Product Added to Favorites");
 				return;
 			case 2:
-                            Product.addProductToCart(currentProduct);
+                            customer.addProductToCart(currentProduct);
 			System.out.println("Product Added to Cart");
-                         Customer customer=new Customer();
-                              System.out.println(customer.makePayment(400));
+                         
 				return;
                        
                           
@@ -120,7 +123,7 @@ public class Main {
 
 	}
 
-	private static void PrintWomenMenu() {
+	private static void PrintWomenMenu(Customer customer) {
 
 		String[] options = { "Bottoms", "Tops", "Dresses", "Shoes", "Bags", "Beauty" };
 		while (true) {
@@ -143,12 +146,12 @@ public class Main {
 			if (category > 6 || category < 1) {
 				continue;
 			}
-			PrintProducts("Women", options[category - 1]);
+			PrintProducts("Women", options[category - 1],customer);
 		}
 
 	}
 
-	private static void PrintKidMenu() {
+	private static void PrintKidMenu(Customer customer) {
 		String[] options = { "Bottoms", "Tops", "Shoes", "Toys" };
 		while (true) {
 			System.out.println(" *************************************** ");
@@ -167,12 +170,12 @@ public class Main {
 			if (category > 4 || category < 1) {
 				continue;
 			}
-			PrintProducts("kids", options[category - 1]);
+			PrintProducts("kids", options[category - 1],customer);
 		}
 
 	}
 
-	private static void PrintManMenu() {
+	private static void PrintManMenu(Customer customer) {
 		String[] options = { "Bottoms", "Tops", "Shoes", "Watches" };
 		while (true) {
 			System.out.println(" *************************************** ");
@@ -192,7 +195,7 @@ public class Main {
 				continue;
 			}
 
-			PrintProducts("Man", options[category - 1]);
+			PrintProducts("Man", options[category - 1],customer);
 
 		}
 
@@ -211,7 +214,8 @@ public class Main {
 		System.out.println("4. Product search");
 		System.out.println("5. Print Favorites");
 		System.out.println("6. Print cart");
-                System.out.println("7. Exit");
+                System.out.println("7. Make Payment");
+                System.out.println("8. Exit");
 		System.out.print(" Please enter your choice: ");
 
 	}

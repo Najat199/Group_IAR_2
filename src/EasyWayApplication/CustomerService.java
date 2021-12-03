@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 public class CustomerService extends Person{
 

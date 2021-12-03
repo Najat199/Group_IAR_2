@@ -1,3 +1,5 @@
+package EasyWayApplication;
+
 
 public class Maneger extends Person {
     private int managerID;
