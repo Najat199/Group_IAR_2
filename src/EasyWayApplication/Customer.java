@@ -22,18 +22,21 @@ public class Customer extends Person {
     Scanner input=new Scanner(System.in);
     
     public Customer() {
+        
+        
     }
 
-    public void addProductToFavorite(Product currentProduct) {
+    public boolean addProductToFavorite(Product currentProduct) {
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Favorites.txt", true)));
             out.println(currentProduct.getProductID());
-            FavoriteProdects.add(currentProduct);
             out.flush();
             out.close();
         } catch (IOException e) {
             System.out.println("Sorry, something went wrong :(");
+           
         }
+      return FavoriteProdects.add(currentProduct);
 
     }
 

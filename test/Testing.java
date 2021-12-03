@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+import EasyWayApplication.Customer;
+import EasyWayApplication.Product;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -41,4 +38,16 @@ public class Testing {
     //
     // @Test
     // public void hello() {}
+    
+     @Test
+    public void testAddToFavoriteMethod (){
+        Customer testAddFav = new Customer();
+        Product currentProduct = new Product("Man", "Bottoms", "11230", "Pants", 88.0);
+        assertTrue(testAddFav.addProductToFavorite(currentProduct));
+    }
+    
+    
+    
+    
+    
 }
