@@ -42,7 +42,7 @@ public class Testing {
      @Test
     public void testAddToFavoriteMethod (){
         Customer testAddFav = new Customer();
-        Product currentProduct = new Product("Man", "Bottoms", "11230", "Pants", 88.0);
+        Product currentProduct = new Product("Man", "Bottoms", "11220", "Pants", 88.0);
         assertTrue(testAddFav.addProductToFavorite(currentProduct));
     }
     
