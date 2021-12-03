@@ -119,32 +119,5 @@ public class Customer extends Person {
         
     }
     
-     private Date parsedate(String birthDate) {
-        SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = null;
-        try {
-            date = parser.parse(birthDate);
-        } catch (ParseException ex) {
-        }
-
-        return date;
-    }
      
- // ...
-    public boolean addToFavorite(int productID){
-     
-        
-        
-         
-        
-        return true; 
-        }
-        
-        
-        
-       
-    
-     public void addToCart(int productID){
-        
-    }
 }
