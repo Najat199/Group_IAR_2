@@ -4,6 +4,30 @@ import java.util.regex.Pattern;
 
 
 public class Checker {
+    
+    public static boolean isValidExpiryDate(String ExpiryDate) {
+
+        //check wheter the first two "MM" "month" characters are digits or not 
+        if (Character.isDigit(ExpiryDate.charAt(0)) && Character.isDigit(ExpiryDate.charAt(1))) {
+            //check wheter the first digit is 0 or 1 to have valid month 
+            if (ExpiryDate.charAt(0) == '0' || (int)ExpiryDate.charAt(0) == '1'){ 
+                //check wheter the month is in the range of 1 -12
+                if (Integer.parseInt(ExpiryDate.substring(0, 2)) >= 1 && Integer.parseInt(ExpiryDate.substring(0, 2)) <= 12) {
+                    if (ExpiryDate.charAt(2) == '/'){ 
+                        //check the year characters "YY"are digits or not 
+                        if (Character.isDigit(ExpiryDate.charAt(3)) && Character.isDigit(ExpiryDate.charAt(4))) { 
+                            //check whether the year is 21 or above or not
+                            if (Integer.parseInt(ExpiryDate.substring(3))>=21) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
     public static boolean isValidCVVNumber(String str)
     {
         // Regex to check valid CVV cardNumber.

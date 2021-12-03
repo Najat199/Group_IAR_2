@@ -89,7 +89,7 @@ public class Main {
                             Product.addProductToCart(currentProduct);
 			System.out.println("Product Added to Cart");
                          Customer customer=new Customer();
-                              customer.makePayment(400);
+                              System.out.println(customer.makePayment(400));
 				return;
                        
                           
