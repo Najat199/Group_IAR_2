@@ -41,6 +41,7 @@ public class Customer extends Person {
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Cart.txt", true)));
             out.println(currentProduct.getProductID());
+            cartProduct.add(currentProduct);
             out.flush();
             out.close();
         } catch (IOException e) {
