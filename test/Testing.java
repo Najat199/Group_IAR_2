@@ -47,7 +47,12 @@ public class Testing {
     }
     
     
-    
+   @Test
+    public void testAddToCartMethod (){
+        Customer testAddCart = new Customer();
+        Product currentProduct = new Product("Men", "Tops", "11231", "shirt", 72.0);
+        assertTrue(testAddCart.addProductToCart(currentProduct));
+    } 
     
     
 }

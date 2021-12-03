@@ -40,7 +40,7 @@ public class Customer extends Person {
 
     }
 
-    public void addProductToCart(Product currentProduct) {
+    public boolean addProductToCart(Product currentProduct) {
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("Cart.txt", true)));
             out.println(currentProduct.getProductID());
@@ -50,7 +50,7 @@ public class Customer extends Person {
         } catch (IOException e) {
            System.out.println("Sorry, something went wrong :(");
         }
-
+return cartProduct.add(currentProduct);
     }
    
     
