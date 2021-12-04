@@ -13,7 +13,7 @@ public class Product {
     private String productID;
     private String productName;
     private double price;
-    private String isAvailable;
+    
 
     public Product(String section, String category, String productID, String productName, double price) {
         this.section = section;

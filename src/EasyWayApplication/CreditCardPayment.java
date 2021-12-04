@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 
 public class CreditCardPayment extends Payment {
 
-    String cardNumber, cardExpirationDate, CVV;
-    File file = new File("CreditCardnformation.txt");
+    private String cardNumber, cardExpirationDate, CVV;
+    private File file = new File("CreditCardnformation.txt");
 
     public CreditCardPayment(double total, String cardNumber, String cardExpirationDate, String CVV) {
         super(total);
