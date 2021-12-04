@@ -1,9 +1,8 @@
 package EasyWayApplication;
 
-
 public class Payment {
+
     double total;
-    
 
     public Payment(double total) {
         this.total = total;
@@ -16,9 +15,9 @@ public class Payment {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    public String paymentDetails(){
-       return "The payment amount is "+total;
+
+    public String paymentDetails() {
+        return "The payment amount is " + total;
     }
-    
+
 }

@@ -1,13 +1,9 @@
 package EasyWayApplication;
 
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Product {
@@ -46,8 +42,6 @@ public class Product {
     public double getPrice() {
         return price;
     }
-
-    
 
     public static void PrintCart() {
         try {
@@ -98,7 +92,7 @@ public class Product {
         while ((line = input.readLine()) != null) {
             if (line.contains(ProductID)) {
                 setter = line.split(",");
-                double price=Double.parseDouble(setter[4]);
+                double price = Double.parseDouble(setter[4]);
                 return new Product(setter[0], setter[1], setter[2], setter[3], price);
             }
 
@@ -129,7 +123,7 @@ public class Product {
             while ((line = input.readLine()) != null) {
                 if (line.contains(Section.trim()) && line.contains(category.trim())) {
                     setter = line.split(",");
-                    double price=Double.parseDouble(setter[4]);
+                    double price = Double.parseDouble(setter[4]);
                     products.add(new Product(setter[0], setter[1], setter[2], setter[3], price));
                 }
             }

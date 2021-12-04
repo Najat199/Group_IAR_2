@@ -1,8 +1,5 @@
 package EasyWayApplication;
 
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Person {
@@ -17,10 +14,8 @@ public class Person {
     private String Address;
 
     public Person() {
-        
+
     }
-    
-   
 
     public int getID() {
         return ID;
@@ -97,10 +92,7 @@ public class Person {
         this.Address = Address;
     }
 
-  
-     
-   
-   public void signUp() {
+    public void signUp() {
     }
 
     public void login() {

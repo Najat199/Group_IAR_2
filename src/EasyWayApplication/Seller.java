@@ -1,6 +1,5 @@
 package EasyWayApplication;
 
-
 public class Seller extends Person {
 
     private int sellerID;

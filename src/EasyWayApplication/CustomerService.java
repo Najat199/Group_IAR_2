@@ -1,7 +1,6 @@
 package EasyWayApplication;
 
-
-public class CustomerService extends Person{
+public class CustomerService extends Person {
 
     private int customerServiceID;
 

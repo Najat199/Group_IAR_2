@@ -35,8 +35,12 @@ public class Main {
 				break;
                         case 6 :Product.PrintCart();
 				break;
-                        case 7 :System.out.println(customer.makePayment()); 
+                        case 7 :System.out.println("\nThank you for shopping from Easy Way System :)\n"
+                            +" ********************************************** \n"
+                            +customer.makePayment().paymentDetails()
+                            +"\nYour order is on its way to you!!"); 
                                 break;
+
                         case 8 :
                              System.out.println(" \n\n***** Thank you ******* ");
                              System.exit(0); 
