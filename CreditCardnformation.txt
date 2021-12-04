@@ -1,4 +1,4 @@
-The payment amount : 176.0
-payed by the card : 379354508162306
-with the expiry date : 07/22
-CVV : 234
+The payment amount : 177.0
+payed by the card : null
+with the expiry date : null
+CVV : null

@@ -1,11 +1,8 @@
 
 import EasyWayApplication.CashPayment;
+import EasyWayApplication.CreditCardPayment;
 import EasyWayApplication.Customer;
 import EasyWayApplication.Product;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,5 +28,12 @@ public class Testing {
         customer.addProductToCart(product2);
         CashPayment cashPaymentObject = customer.makePaymentByCash(customer.getTotalPrice());
         assertNotNull(cashPaymentObject);
+    }
+    @Test
+     public void testMakePaymentByCreditCard(){
+      customer.addProductToCart(product1);
+      customer.addProductToCart(product2);
+      CreditCardPayment creditCardPaymentObject=customer.makePaymentByCreditCard(customer.getTotalPrice());
+      assertNotNull(creditCardPaymentObject);
     }
 }
